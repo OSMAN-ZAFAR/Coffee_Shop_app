@@ -44,7 +44,7 @@ class Intropage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 150),
                         child: BoldText(
                           text:
-                              " \"Our coffee shop sets the global\n standard for coffee excellence by\n blending master-level craftsmanship\n with unparalleled hospitality.\" \n\n\t\t\t\t\t  WELCOME TO OUR FAMILY  !",
+                              " \"Fuel your day with our prem-\n -ium artisanal brews and ready\n for pickup or delivery at the tap\n\t\t\t\t\t\t \t\t\t\t\t of a button. \" \n\n  WELCOME TO OUR FAMILY  !",
                           size: 19,
                           color: const Color.fromARGB(255, 247, 246, 246),
                         ),
@@ -70,7 +70,7 @@ class Intropage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30)
                       
                         ),
-                        child: Center(child: LightText(text: "Get Started",color: Colors.amber,)),
+                        child: Center(child: BoldText(text: "Get Started",color: Colors.amber,)),
                       ),
                     ),
                   ],

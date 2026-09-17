@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:coffee_shop_app/Models/coffee.dart';
+import 'package:coffee_shop_app/01_Models/coffee.dart';
 
 final List<Coffee> coffees = [
   Coffee(

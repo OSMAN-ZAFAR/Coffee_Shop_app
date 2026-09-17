@@ -5,7 +5,7 @@ import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
-import 'package:coffee_shop_app/Models/coffee.dart';
+import 'package:coffee_shop_app/01_Models/coffee.dart';
 import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:flutter/material.dart';
 

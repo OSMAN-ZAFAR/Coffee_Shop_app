@@ -1,14 +1,15 @@
-// ignore_for_file: sort_child_properties_last, unused_import
+// ignore_for_file: duplicate_import, sort_child_properties_last, unused_import
 
-import 'package:coffee_shop_app/02_Views/02_Login_Page/signuppage.dart';
+import 'package:coffee_shop_app/02_Views/02_Login_Page/loginpage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:coffee_shop_app/widgets/MyForm.dart';
+import 'package:coffee_shop_app/widgets/MyHeading.dart';
 import 'package:flutter/material.dart';
 
-class Loginpage extends StatelessWidget {
-  const Loginpage({super.key});
+class Signuppage extends StatelessWidget {
+  const Signuppage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class Loginpage extends StatelessWidget {
 
             Center(
               child: Container(
-                height: 530,
+                height: 750,
                 width: 330,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(142, 150, 152, 154),
@@ -45,7 +46,7 @@ class Loginpage extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 30),
                         child: BoldText(
-                          text: " WELCOME  BACK  ",
+                          text: " WELCOME ",
                           size: 25,
                           color: const Color.fromARGB(255, 247, 246, 246),
                         ),
@@ -53,7 +54,7 @@ class Loginpage extends StatelessWidget {
                     ),
 
                     LightText(
-                      text: "Sign in to proceed",
+                      text: "Sign up to proceed",
                       color: Colors.white,
                       size: 17,
                     ),
@@ -61,80 +62,55 @@ class Loginpage extends StatelessWidget {
                     SizedBox(height: 10),
 
                     // .........................username text..........
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: Row(
-                        children: [
-                          Icon(Icons.person),
-                          SizedBox(width: 5),
-                          LightText(
-                            text: "Username :",
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ],
-                      ),
-                    ),
-
+                    Myheading(title: "Name", icon: Icons.person_2_outlined),
                     // .........................username textformfield..........
                     Myform(label: "Name"),
 
+                    // .........................Email text..........
+                    Myheading(title: "Email", icon: Icons.email_outlined),
+
+                    // .........................Email textformfield..........
+                    Myform(label: "Email"),
+
                     // .........................password text..........
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: Row(
-                        children: [
-                          Icon(Icons.key_rounded),
-                          SizedBox(width: 5),
-                          LightText(
-                            text: "password :",
-                            color: Colors.white,
-                            size: 18,
-                          ),
-                        ],
-                      ),
+                    Myheading(
+                      title: "Password",
+                      icon: Icons.lock_clock_outlined,
                     ),
-
                     // .........................password textformfield..........
-                  Myform(label: "Password"),
-                    // .........................Forget Password..........
-                    SizedBox(height: 10),
+                    Myform(label: "Password"),
 
-                    Padding(
-                      padding: const EdgeInsets.only(left: 175),
-                      child: Row(
-                        children: [
-                          LightText(
-                            text: "Forget Password",
-                            color: const Color.fromARGB(255, 249, 191, 16),
-                            size: 17,
-                          ),
-                        ],
-                      ),
+                    // ........................ Confirm.password text..........
+                    Myheading(
+                      title: "Confirm Password",
+                      icon: Icons.lock_clock_outlined,
                     ),
-                    SizedBox(height: 10),
+                    // .........................Confirm password textformfield..........
+                    Myform(label: "Confirm Password"),
 
+                    
                     // .........................register here..........
                     Padding(
                       padding: const EdgeInsets.only(left: 55),
                       child: Row(
                         children: [
                           LightText(
-                            text: "If you're new ,",
+                            text: "Already have account ,",
                             color: Colors.white,
                             size: 15,
                           ),
                           SizedBox(width: 5),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Signuppage()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Loginpage()));
                             },
                             child: LightText(
-                              text: "Register here",
+                              text: "Login",
                               color: const Color.fromARGB(255, 249, 191, 16),
                               size: 17,
                             ),
                           ),
+                          
                         ],
                       ),
                     ),
@@ -158,7 +134,7 @@ class Loginpage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Center(
-                          child: BoldText(text: "Login", color: Colors.amber),
+                          child: BoldText(text: "Sign up", color: Colors.amber),
                         ),
                       ),
                     ),
