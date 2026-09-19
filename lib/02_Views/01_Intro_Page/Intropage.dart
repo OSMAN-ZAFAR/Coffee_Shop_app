@@ -26,51 +26,58 @@ class Intropage extends StatelessWidget {
                 ),
               ),
             ),
+          
 
             Center(
-              child: Container(
-                height: 530,
-                width: 330,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(142, 150, 152, 154),
-
-                  borderRadius: BorderRadius.circular(25),
-                ),
-
+              child: Padding(
+                padding: const EdgeInsets.only(top: 250),
                 child: Column(
                   children: [
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 150),
-                        child: BoldText(
-                          text:
-                              " \"Fuel your day with our prem-\n -ium artisanal brews and ready\n for pickup or delivery at the tap\n\t\t\t\t\t\t \t\t\t\t\t of a button. \" \n\n  WELCOME TO OUR FAMILY  !",
-                          size: 19,
-                          color: const Color.fromARGB(255, 247, 246, 246),
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(height: 50,),
-
-                    GestureDetector(
-                      onTap: () {
-                        print("button is working ");
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Loginpage() ),
-                      );
+                    Container(
+                      height: 350,
+                      width: 330,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(142, 150, 152, 154),
+                        borderRadius: BorderRadius.circular(25),
+                      ),                    
+                      child: Column(
+                        children: [
                         
-                      },
-                      child: Container(
-                        height: 50,
-                        width: 170,
-                        decoration: BoxDecoration(
-                        color: const Color.fromARGB(164, 8, 73, 139),
-                        borderRadius: BorderRadius.circular(30)
-                      
-                        ),
-                        child: Center(child: BoldText(text: "Get Started",color: Colors.amber,)),
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 30),
+                              child: BoldText(
+                                text:
+                                    " \"Fuel your day with our prem-\n -ium artisanal brews and ready\n for pickup or delivery at the tap\n\t\t\t\t\t\t \t\t\t\t\t of a button. \" \n\n  WELCOME TO OUR FAMILY  !",
+                                size: 19,
+                                color: const Color.fromARGB(255, 247, 246, 246),
+                              ),
+                            ),
+                          ),
+                    
+                          SizedBox(height: 50,),
+                    
+                          GestureDetector(
+                            onTap: () {
+                              print("button is working ");
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Loginpage() ),
+                            );
+                              
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 170,
+                              decoration: BoxDecoration(
+                              color: const Color.fromARGB(164, 8, 73, 139),
+                              borderRadius: BorderRadius.circular(30)
+                            
+                              ),
+                              child: Center(child: BoldText(text: "Get Started",color: Colors.amber,)),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

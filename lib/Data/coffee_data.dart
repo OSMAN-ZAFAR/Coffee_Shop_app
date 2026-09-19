@@ -33,7 +33,7 @@ final List<Coffee> coffees = [
     image: 'assets/Arabica.jpg',
     price: 5.8,
     description: "",
-    rating: 4.65
+    rating: 4.6
 
   ),
 
@@ -41,7 +41,7 @@ final List<Coffee> coffees = [
  Coffee(
     name: 'Robusta',
     image: 'assets/Robusta.jpg',
-    price: 5.35,
+    price: 5.3,
     rating: 3.7,
     description: "  Strong, bold, and bitter with an earthy or grainy flavor\n  High in caffeine (nearly double the amount in Arabica).\n  Second most common bean, often used in espresso blends for a thick crema (foam)."
 

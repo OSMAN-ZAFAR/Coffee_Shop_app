@@ -159,7 +159,7 @@ class Homepage extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
 
                   //......................... List of coffee Names ......................
                   Container(
@@ -175,8 +175,8 @@ class Homepage extends StatelessWidget {
                           margin: EdgeInsets.only(right: 30),
                           height: 15,
                           width: 104,
-                          child: LightText(
-                            text: coffeeNames[index],
+                          child: BoldText(
+                            text: coffeeNames[index],size: 15,
                             color: index == 0
                                 ? const Color.fromARGB(255, 241, 163, 99)
                                 : const Color.fromARGB(255, 212, 211, 211),

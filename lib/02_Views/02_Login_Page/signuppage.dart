@@ -41,7 +41,7 @@ class Signuppage extends StatelessWidget {
 
                 child: Column(
                   children: [
-                    // .........................welcomeback text..........
+                    // .........................welcome text..........
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.only(top: 30),
@@ -60,36 +60,36 @@ class Signuppage extends StatelessWidget {
                     ),
 
                     SizedBox(height: 10),
-
+                                           
                     // .........................username text..........
                     Myheading(title: "Name", icon: Icons.person_2_outlined),
-                    // .........................username textformfield..........
                     Myform(label: "Name"),
+
 
                     // .........................Email text..........
                     Myheading(title: "Email", icon: Icons.email_outlined),
-
-                    // .........................Email textformfield..........
                     Myform(label: "Email"),
+
 
                     // .........................password text..........
                     Myheading(
                       title: "Password",
                       icon: Icons.lock_clock_outlined,
                     ),
-                    // .........................password textformfield..........
                     Myform(label: "Password"),
+
+
 
                     // ........................ Confirm.password text..........
                     Myheading(
                       title: "Confirm Password",
                       icon: Icons.lock_clock_outlined,
                     ),
-                    // .........................Confirm password textformfield..........
                     Myform(label: "Confirm Password"),
 
+
                     
-                    // .........................register here..........
+                    // .........................Login here..........
                     Padding(
                       padding: const EdgeInsets.only(left: 55),
                       child: Row(
@@ -114,10 +114,9 @@ class Signuppage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    // SizedBox(height: 40),
                     SizedBox(height: 30),
 
-                    // .........................Login Button................
+                    // .........................Sign up Button................
                     GestureDetector(
                       onTap: () {
                         print("button is working ");

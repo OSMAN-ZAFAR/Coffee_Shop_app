@@ -17,7 +17,7 @@ class LightText extends StatelessWidget {
 
     this.textOverflow = TextOverflow.ellipsis,
     this.font = "font30",
-    this.color=Colors.black,
+    this.color=Colors.white,
     required this.text,
   });
 

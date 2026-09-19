@@ -58,7 +58,7 @@ class Coffeetiles extends StatelessWidget {
                               ),
                             ),
                             height: 150,
-                            width: 190,
+                            width: 210,
                           ),
 
                           // ranking container.....
@@ -67,7 +67,7 @@ class Coffeetiles extends StatelessWidget {
                               children: [
                                 Padding(
                                   // star icon......
-                                  padding: EdgeInsetsGeometry.only(left: 10),
+                                  padding: EdgeInsetsGeometry.only(left: 1),
                                   child: Icon(
                                     Icons.star,
                                     color: const Color.fromARGB(
@@ -136,7 +136,7 @@ class Coffeetiles extends StatelessWidget {
                                       163,
                                       99,
                                     ),
-                                    size: 30,
+                                    size: 25,
                                   ),
 
                                   // price text...
@@ -150,8 +150,8 @@ class Coffeetiles extends StatelessWidget {
                                   // plus Button...
                                   Container(
                                     child: Icon(Icons.add),
-                                    height: 50,
-                                    width: 40,
+                                    height: 70,
+                                    width: 50,
                                     decoration: BoxDecoration(
                                       color: const Color.fromARGB(
                                         255,
