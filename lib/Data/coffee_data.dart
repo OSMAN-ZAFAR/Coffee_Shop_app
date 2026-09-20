@@ -8,20 +8,21 @@ List<Coffee> coffees = [
 
   // Classic Cappuccino
   Coffee(
+
     name: "Classic\nCappuccino",
     image: "assets/cappuccino/classic.jpg",
-    price: "4.2",
+    price: 10,
     rating: "4.5",
     feature: "1. Rich Espresso\n2. Smooth & Creamy\n3. Thick Milk Foam",
     category: "Cappuccino",
-  ),
+  ), 
 
-// Vanilla Cappuccino
- 
+  // Vanilla Cappuccino
+
   Coffee(
     name: "Vanilla\nCappuccino",
     image: "assets/cappuccino/vanilla.jpg",
-    price: "4.5",
+    price: 20,
     rating: "4.7",
     feature: "1. Creamy Vanilla\n2. Vanilla Rich\n3. Smooth & Sweet",
     category: "Cappuccino",
@@ -31,7 +32,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nCappuccino",
     image: "assets/cappuccino/caramel.jpg",
-    price: "6.7",
+    price: 30,
     rating: "4.2",
     feature: "1. Caramel Rich\n2. Smooth Caramel\n3. Sweet & Buttery",
     category: "Cappuccino",
@@ -41,7 +42,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Mocha\nCappuccino",
     image: "assets/cappuccino/mocha.jpg",
-    price: "3.7",
+    price: 25,
     rating: "4.6",
     feature: "1. Rich Chocolate\n2. Chocolate & Smooth\n3. Mocha Rich",
     category: "Cappuccino",
@@ -51,19 +52,20 @@ List<Coffee> coffees = [
   Coffee(
     name: "Hazelnut\nCappuccino",
     image: "assets/cappuccino/hazelnut.jpg",
-    price: "4.9",
+    price: 30,
     rating: "4.9",
     feature: "1. Nutty & Creamy\n2. Hazelnut Rich\n3. Sweet & Nutty",
     category: "Cappuccino",
   ),
 
   // ==================== ESPRESSO ====================
-
+  
+  
   // Classic Espresso
   Coffee(
     name: "Classic\nEspresso",
     image: "assets/espresso/classic.jpg",
-    price: "3.2",
+    price: 27,
     rating: "4.6",
     feature: "1. Strong Espresso\n2. Rich Aroma\n3. Bold & Smooth",
     category: "Espresso",
@@ -73,7 +75,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Double\nEspresso",
     image: "assets/espresso/double.jpg",
-    price: "4.0",
+    price: 25,
     rating: "4.8",
     feature: "1. Double Shot\n2. Strong & Bold\n3. Rich Crema",
     category: "Espresso",
@@ -83,7 +85,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nEspresso",
     image: "assets/espresso/caramel.jpg",
-    price: "4.8",
+    price: 10,
     rating: "4.5",
     feature: "1. Caramel Flavor\n2. Strong Espresso\n3. Sweet Finish",
     category: "Espresso",
@@ -93,7 +95,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Chocolate\nEspresso",
     image: "assets/espresso/chocolate.jpg",
-    price: "4.6",
+    price: 23,
     rating: "4.7",
     feature: "1. Dark Chocolate\n2. Rich Espresso\n3. Smooth Finish",
     category: "Espresso",
@@ -103,7 +105,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nEspresso",
     image: "assets/espresso/vanilla.jpg",
-    price: "4.4",
+    price: 34,
     rating: "4.6",
     feature: "1. Vanilla Aroma\n2. Bold Espresso\n3. Smooth & Sweet",
     category: "Espresso",
@@ -115,7 +117,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Classic\nLatte",
     image: "assets/latte/classic.jpg",
-    price: "4.3",
+    price: 24,
     rating: "4.7",
     feature: "1. Smooth Espresso\n2. Creamy Milk\n3. Light Foam",
     category: "Latte",
@@ -125,7 +127,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nLatte",
     image: "assets/latte/vanilla.jpg",
-    price: "4.8",
+    price: 34,
     rating: "4.8",
     feature: "1. Vanilla Rich\n2. Creamy Milk\n3. Sweet & Smooth",
     category: "Latte",
@@ -135,7 +137,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nLatte",
     image: "assets/latte/caramel.jpg",
-    price: "5.2",
+    price: 17,
     rating: "4.9",
     feature: "1. Caramel Drizzle\n2. Creamy Milk\n3. Sweet & Rich",
     category: "Latte",
@@ -145,7 +147,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Hazelnut\nLatte",
     image: "assets/latte/hazelnut.jpg",
-    price: "5.0",
+    price: 30,
     rating: "4.7",
     feature: "1. Hazelnut Flavor\n2. Creamy Texture\n3. Nutty Finish",
     category: "Latte",
@@ -155,7 +157,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Mocha\nLatte",
     image: "assets/latte/mocha.jpg",
-    price: "5.4",
+    price: 20,
     rating: "4.8",
     feature: "1. Chocolate Rich\n2. Creamy Milk\n3. Smooth Espresso",
     category: "Latte",
@@ -167,7 +169,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Classic\nFlat White",
     image: "assets/flat_white/classic.jpg",
-    price: "4.4",
+    price: 30,
     rating: "4.6",
     feature: "1. Double Espresso\n2. Velvety Milk\n3. Smooth Texture",
     category: "Flat White",
@@ -177,7 +179,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nFlat White",
     image: "assets/flat_white/vanilla.jpg",
-    price: "4.8",
+    price: 29,
     rating: "4.7",
     feature: "1. Vanilla Flavor\n2. Velvety Milk\n3. Smooth & Sweet",
     category: "Flat White",
@@ -187,7 +189,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nFlat White",
     image: "assets/flat_white/caramel.jpg",
-    price: "5.1",
+    price: 22,
     rating: "4.8",
     feature: "1. Caramel Rich\n2. Smooth Milk\n3. Sweet Finish",
     category: "Flat White",
@@ -197,7 +199,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Hazelnut\nFlat White",
     image: "assets/flat_white/hazelnut.jpg",
-    price: "5.0",
+    price: 34,
     rating: "4.7",
     feature: "1. Nutty Flavor\n2. Velvety Milk\n3. Rich Aroma",
     category: "Flat White",
@@ -207,7 +209,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Mocha\nFlat White",
     image: "assets/flat_white/mocha.jpg",
-    price: "5.3",
+    price: 15,
     rating: "4.8",
     feature: "1. Chocolate Flavor\n2. Strong Espresso\n3. Velvety Milk",
     category: "Flat White",
@@ -219,7 +221,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Classic\nAmericano",
     image: "assets/americano/classic.jpg",
-    price: "3.5",
+    price: 17,
     rating: "4.5",
     feature: "1. Rich Espresso\n2. Hot Water\n3. Smooth & Bold",
     category: "Americano",
@@ -229,7 +231,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Iced\nAmericano",
     image: "assets/americano/iced.jpg",
-    price: "4.0",
+    price: 40,
     rating: "4.7",
     feature: "1. Cold & Refreshing\n2. Strong Espresso\n3. Smooth Finish",
     category: "Americano",
@@ -239,7 +241,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Honey\nAmericano",
     image: "assets/americano/honey.jpg",
-    price: "4.3",
+    price: 34,
     rating: "4.6",
     feature: "1. Natural Honey\n2. Rich Espresso\n3. Light Sweetness",
     category: "Americano",
@@ -249,7 +251,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nAmericano",
     image: "assets/americano/vanilla.jpg",
-    price: "4.2",
+    price: 25,
     rating: "4.7",
     feature: "1. Vanilla Aroma\n2. Bold Espresso\n3. Smooth & Sweet",
     category: "Americano",
@@ -259,7 +261,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nAmericano",
     image: "assets/americano/caramel.jpg",
-    price: "4.5",
+    price: 14,
     rating: "4.6",
     feature: "1. Caramel Flavor\n2. Strong Espresso\n3. Sweet Finish",
     category: "Americano",
@@ -271,7 +273,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Classic\nMacchiato",
     image: "assets/macchiato/classic.jpg",
-    price: "4.1",
+    price: 13,
     rating: "4.6",
     feature: "1. Strong Espresso\n2. Milk Foam\n3. Bold Aroma",
     category: "Macchiato",
@@ -281,7 +283,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nMacchiato",
     image: "assets/macchiato/caramel.jpg",
-    price: "5.4",
+    price: 16,
     rating: "4.9",
     feature: "1. Caramel Drizzle\n2. Creamy Milk\n3. Sweet Espresso",
     category: "Macchiato",
@@ -291,7 +293,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nMacchiato",
     image: "assets/macchiato/vanilla.jpg",
-    price: "5.0",
+    price: 18,
     rating: "4.8",
     feature: "1. Vanilla Rich\n2. Espresso Strong\n3. Creamy Foam",
     category: "Macchiato",
@@ -301,7 +303,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Hazelnut\nMacchiato",
     image: "assets/macchiato/hazelnut.jpg",
-    price: "5.2",
+    price: 22,
     rating: "4.7",
     feature: "1. Nutty Flavor\n2. Rich Espresso\n3. Creamy Foam",
     category: "Macchiato",
@@ -311,7 +313,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Mocha\nMacchiato",
     image: "assets/macchiato/mocha.jpg",
-    price: "5.3",
+    price: 20,
     rating: "4.8",
     feature: "1. Chocolate Rich\n2. Strong Espresso\n3. Creamy Finish",
     category: "Macchiato",
@@ -323,7 +325,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Classic\nCortado",
     image: "assets/cortado/classic.jpg",
-    price: "4.0",
+    price: 23,
     rating: "4.5",
     feature: "1. Balanced Espresso\n2. Warm Milk\n3. Smooth & Rich",
     category: "Cortado",
@@ -333,7 +335,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Vanilla\nCortado",
     image: "assets/cortado/vanilla.jpg",
-    price: "4.5",
+    price: 16,
     rating: "4.7",
     feature: "1. Vanilla Flavor\n2. Balanced Espresso\n3. Smooth & Sweet",
     category: "Cortado",
@@ -343,7 +345,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Caramel\nCortado",
     image: "assets/cortado/caramel.jpg",
-    price: "4.8",
+    price: 18,
     rating: "4.7",
     feature: "1. Caramel Rich\n2. Balanced Coffee\n3. Sweet Finish",
     category: "Cortado",
@@ -353,7 +355,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Hazelnut\nCortado",
     image: "assets/cortado/hazelnut.jpg",
-    price: "4.9",
+    price: 20,
     rating: "4.8",
     feature: "1. Nutty Flavor\n2. Rich Espresso\n3. Smooth Milk",
     category: "Cortado",
@@ -363,7 +365,7 @@ List<Coffee> coffees = [
   Coffee(
     name: "Mocha\nCortado",
     image: "assets/cortado/mocha.jpg",
-    price: "5.0",
+    price: 20,
     rating: "4.7",
     feature: "1. Chocolate Flavor\n2. Balanced Espresso\n3. Smooth Finish",
     category: "Cortado",

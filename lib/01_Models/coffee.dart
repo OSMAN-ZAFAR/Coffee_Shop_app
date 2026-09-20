@@ -1,7 +1,7 @@
 class Coffee {
   final String name;
   final String image;
-  final String price;
+  final double price;
   final String rating;
   final String feature;
   final String category;

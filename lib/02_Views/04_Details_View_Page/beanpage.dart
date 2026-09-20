@@ -77,11 +77,9 @@ class _BeanpageState extends State<Beanpage> {
                           onTap: () {
                             setState(() {
                               isFavorite = !isFavorite;
-                              if(isFavorite){
+                              if (isFavorite) {
                                 favoriteCoffees.add(widget.coffee);
-                                
-                              }
-                              else{
+                              } else {
                                 favoriteCoffees.remove(widget.coffee);
                               }
                             });
@@ -230,7 +228,10 @@ class _BeanpageState extends State<Beanpage> {
                               ),
                               SizedBox(width: 5),
 
-                              BoldText(text:widget.coffee.rating.toString(), size: 20),
+                              BoldText(
+                                text: widget.coffee.rating.toString(),
+                                size: 20,
+                              ),
 
                               SizedBox(width: 10),
 
@@ -264,7 +265,7 @@ class _BeanpageState extends State<Beanpage> {
                                   ),
                                 ),
                                 height: 50,
-                                width: 170,
+                                width: 150,
                               ),
                             ],
                           ),
@@ -274,7 +275,7 @@ class _BeanpageState extends State<Beanpage> {
                   ),
                 ),
 
-                Bottomhalfbeanpage(),
+                Bottomhalfbeanpage(coffee: widget.coffee,),
               ],
             ),
           ],

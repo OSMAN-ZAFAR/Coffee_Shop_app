@@ -1,4 +1,4 @@
-// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
+// ignore_for_file: prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
@@ -9,8 +9,17 @@ import 'package:coffee_shop_app/01_Models/coffee.dart';
 import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:flutter/material.dart';
 
-class Bottomhalfbeanpage extends StatelessWidget {
-  const Bottomhalfbeanpage({super.key});
+class Bottomhalfbeanpage extends StatefulWidget {
+   Bottomhalfbeanpage({super.key, required this.coffee});
+  
+  final Coffee coffee;
+
+  @override
+  State<Bottomhalfbeanpage> createState() => _BottomhalfbeanpageState();
+}
+
+class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
+    String selectedSize="250gm";
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +42,10 @@ class Bottomhalfbeanpage extends StatelessWidget {
         // Description Text........
         Container(
           margin: EdgeInsets.only(left: 10),
-          height: 60,
+          height: 65,
           width: 480,
           child: LightText(
-            text:"  Coffee is a popular warm drink made from roasted and\n ground seeds of a tropical plant.",
+            text: widget.coffee.feature,
                
             color: Colors.white,
             size: 14,
@@ -59,37 +68,55 @@ class Bottomhalfbeanpage extends StatelessWidget {
           child: Row(
             children: [
               // Size conatiner 1........
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(218, 60, 111, 162),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 40,
-                width: 100,
-                child: Center(
-                  child: LightText(
-                    text: "250gm",
-                    size: 15,
-                    color: const Color.fromARGB(255, 240, 141, 29),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize="250gm";
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(218, 60, 111, 162),
+                    
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  height: 40,
+                  width: 100,
+                  child: Center(
+                    child: LightText(
+                      text: "250gm",
+                      size: 15,
+                      color: selectedSize =="250gm"
+                      ?const Color.fromARGB(255, 240, 141, 29)
+                      :Colors.white,
+                    ),
                   ),
                 ),
               ),
-
               SizedBox(width: 20),
 
               // Size conatiner 2........
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(218, 60, 111, 162),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 40,
-                width: 100,
-                child: Center(
-                  child: LightText(
-                    text: "500gm",
-                    size: 15,
-                    color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize="500gm";
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(218, 60, 111, 162),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  height: 40,
+                  width: 100,
+                  child: Center(
+                    child: LightText(
+                      text: "500gm",
+                      size: 15,
+                      color: selectedSize =="500gm"
+                      ?const Color.fromARGB(255, 240, 141, 29)
+                      : Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -97,18 +124,28 @@ class Bottomhalfbeanpage extends StatelessWidget {
               SizedBox(width: 20),
 
               // Size conatiner 3........
-              Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(218, 60, 111, 162),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                height: 40,
-                width: 100,
-                child: Center(
-                  child: LightText(
-                    text: "1000gm",
-                    size: 15,
-                    color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selectedSize="1000gm";
+                   
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(218, 60, 111, 162),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  height: 40,
+                  width: 100,
+                  child: Center(
+                    child: LightText(
+                      text: "1000gm",
+                      size: 15,
+                      color:selectedSize=="1000gm"
+                       ? const Color.fromARGB(255, 240, 141, 29)
+                       :Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -140,7 +177,13 @@ class Bottomhalfbeanpage extends StatelessWidget {
                   children: [
                     Icon(Icons.attach_money_outlined,color:  const Color.fromARGB(255, 255, 172, 7),size: 35,),
 
-                    BoldText(text: "10.50",size: 25,)
+                    BoldText(text: 
+                    selectedSize =="250gm"
+                    ? widget.coffee.price.toString()
+                    :selectedSize =="500gm"
+                      ? (widget.coffee.price+5).toString()
+                      : (widget.coffee.price+10).toString(),
+                      size: 25,)
 
 
                   ],
