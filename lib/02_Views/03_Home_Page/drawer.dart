@@ -33,7 +33,7 @@ class MyDrawer extends StatelessWidget {
                         icon: Icon(
                           Icons.account_circle,
                           size: 50,
-                          color: Colors.amber,
+                          color: const Color.fromARGB(255, 241, 163, 99),
                         ),
                       ),
                       SizedBox(width: 5),
@@ -45,7 +45,7 @@ class MyDrawer extends StatelessWidget {
                   LightText(
                     text: "zafarsmindset@gmail.com",
                     size: 13,
-                    color: Colors.amber,
+                    color: const Color.fromARGB(255, 241, 163, 99),
                   ),
                 ],
               ),

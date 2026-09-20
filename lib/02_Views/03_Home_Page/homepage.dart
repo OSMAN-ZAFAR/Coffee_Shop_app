@@ -1,17 +1,23 @@
-// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
+// ignore_for_file: duplicate_import, unused_element, non_constant_identifier_names, prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
-import 'package:coffee_shop_app/02_Views/03_Home_Page/coffeeTiles2.dart';
-import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
 import 'package:coffee_shop_app/02_Views/07-Favorite_Page/favoritepage.dart';
+import 'package:coffee_shop_app/02_Views/03_Home_Page/coffeeTiles.dart';
+import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
+import 'package:coffee_shop_app/01_Models/coffee.dart';
+import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
-import 'drawer.dart';
 import 'package:flutter/material.dart';
-import 'coffeeTiles.dart';
+import 'drawer.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   Homepage({super.key});
 
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
   List coffeeNames = [
     "Cappuccino",
     "Espresso",
@@ -21,6 +27,14 @@ class Homepage extends StatelessWidget {
     "Macchiato",
     "Cortado",
   ];
+
+  String selectedCatagory = "Cappuccino";
+
+  List<Coffee> get filteredCoffee {
+    return coffees
+        .where((coffee) => coffee.category == selectedCatagory)
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +46,10 @@ class Homepage extends StatelessWidget {
         //.................. Bottom Navigation ................................
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor:  const Color.fromARGB(125, 60, 111, 162),
-
+          backgroundColor: const Color.fromARGB(255, 10, 10, 10),
 
           items: [
-            //............ Home 
+            //............ Home
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_filled,
@@ -45,8 +58,8 @@ class Homepage extends StatelessWidget {
               ),
               label: '',
             ),
-          
-           //............ cart 
+
+            //............ cart
             BottomNavigationBarItem(
               icon: GestureDetector(
                 onTap: () {
@@ -57,46 +70,45 @@ class Homepage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.shopping_bag,
-                  color: const Color.fromARGB(255, 212, 211, 211),
-                  size: 28,
-                ),
-              ),
-              label: '',
-            ),
- 
-           //............ favorite 
-            BottomNavigationBarItem(
-              icon: GestureDetector(
-                onTap: () {
-                   Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Favoritepage(),
-                              ),
-                            );
-                },
-                child: Icon(
-                  Icons.favorite,
-                  color: const Color.fromARGB(255, 212, 211, 211),
+                  color: const Color.fromARGB(187, 60, 111, 162),
+
                   size: 28,
                 ),
               ),
               label: '',
             ),
 
-            //............ Notification 
+            //............ favorite
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Favoritepage()),
+                  );
+                },
+                child: Icon(
+                  Icons.favorite,
+                  color: const Color.fromARGB(187, 60, 111, 162),
+                  size: 28,
+                ),
+              ),
+              label: '',
+            ),
+
+            //............ Notification
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.notification_important_rounded,
-                color: const Color.fromARGB(255, 212, 211, 211),
+                color: const Color.fromARGB(187, 60, 111, 162),
                 size: 28,
               ),
               label: '',
             ),
           ],
         ),
-        
-         //............................. Body .........................
+
+        //............................. Body .........................
         body: Builder(
           builder: (context) {
             return SingleChildScrollView(
@@ -105,13 +117,16 @@ class Homepage extends StatelessWidget {
                 children: [
                   // ☰ Drawer Button
                   IconButton(
-                    icon: const Icon(Icons.menu_outlined, size: 30,color: Color.fromARGB(244, 230, 170, 5),),
+                    icon: const Icon(
+                      Icons.menu_outlined,
+                      size: 30,
+                      color: Color.fromARGB(244, 230, 170, 5),
+                    ),
                     onPressed: () {
                       Scaffold.of(context).openDrawer();
                     },
                   ),
 
-                  // Your existing content starts here
                   SizedBox(height: 30),
 
                   //............................. text .........................
@@ -171,34 +186,37 @@ class Homepage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: coffeeNames.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.only(right: 30),
-                          height: 15,
-                          width: 104,
-                          child: BoldText(
-                            text: coffeeNames[index],size: 15,
-                            color: index == 0
-                                ? const Color.fromARGB(255, 241, 163, 99)
-                                : const Color.fromARGB(255, 212, 211, 211),
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selectedCatagory = coffeeNames[index];
+                            });
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 30),
+                            height: 15,
+                            width: 104,
+                            child: BoldText(
+                              text: coffeeNames[index],
+                              size: 15,
+                              color: coffeeNames[index] == selectedCatagory
+                                  ? const Color.fromARGB(255, 241, 163, 99)
+                                  : const Color.fromARGB(255, 212, 211, 211),
+                            ),
                           ),
                         );
                       },
                     ),
                   ),
 
-                  Coffeetiles(),
-
-                  SizedBox(height: 15),
-
-                  BoldText(
-                    text: "Special for you",
-                    size: 20,
-                    color: const Color.fromARGB(255, 212, 211, 211),
-                  ),
-
-                  SizedBox(height: 15),
-
-                  Coffeetiles2(),
+                  ...filteredCoffee.map((coffee) {
+                    return Column(
+                      children: [
+                        CoffeeTile(coffee: coffee),
+                        SizedBox(height: 25),
+                      ],
+                    );
+                  }),
                 ],
               ),
             );

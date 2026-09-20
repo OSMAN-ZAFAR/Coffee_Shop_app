@@ -26,7 +26,7 @@ class Mycontainer extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Icon(icon,color: Colors.amber,size: 40,),
+              Icon(icon,color: const Color.fromARGB(255, 241, 163, 99),size: 40,),
               SizedBox(width: 25,),
               LightText(text: tittle,size: 17,)
 

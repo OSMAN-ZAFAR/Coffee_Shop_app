@@ -1,180 +1,153 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
+import 'package:coffee_shop_app/01_Models/coffee.dart';
+import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
-import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:flutter/material.dart';
 
-class Coffeetiles extends StatelessWidget {
-  Coffeetiles({super.key});
+class CoffeeTile extends StatelessWidget {
+  CoffeeTile({
+  super.key,
+  required this.coffee,
+});
+
+final Coffee coffee;
 
   @override
   Widget build(BuildContext context) {
-    return // List of  coffee containers......
-    Container(
+    return Container(
+      decoration: BoxDecoration(
+        // main container.......
+        color: const Color.fromARGB(125, 60, 111, 162),
+
+        borderRadius: BorderRadius.circular(15),
+      ),
+      margin: EdgeInsets.only(right: 25),
       height: 270,
-      width: double.maxFinite,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: coffees.length,
-        itemBuilder: (context, index) {
-          return Expanded(
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Beanpage(coffee: coffees[index]),
-                  ),
-                );
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  // main container.......
-                  color: const Color.fromARGB(125, 60, 111, 162),
+      width: 400,
 
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                margin: EdgeInsets.only(right: 25),
-                height: 270,
-                width: 200,
+      child: Row(
+        children: [
 
+          // Image container stack........
+          Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
                 child: Stack(
-                  // First stack........
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Stack(
+                    //Image container......
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                          image: AssetImage(coffee.image),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      height: 250,
+                      width: 180,
+                    ),
+
+                    // ranking container.....
+                    Container(
+                      child: Row(
                         children: [
-                          //Image container......
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-
-                              image: DecorationImage(
-                                image: AssetImage(coffees[index].image),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            height: 150,
-                            width: 210,
-                          ),
-
-                          // ranking container.....
-                          Container(
-                            child: Row(
-                              children: [
-                                Padding(
-                                  // star icon......
-                                  padding: EdgeInsetsGeometry.only(left: 1),
-                                  child: Icon(
-                                    Icons.star,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      251,
-                                      179,
-                                      34,
-                                    ),
-                                  ),
-                                ),
-
-                                SizedBox(width: 5),
-
-                                // Ranking text......
-                                LightText(
-                                  text: coffees[index].rating.toString(),
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                              ],
-                            ),
-
-                            margin: EdgeInsets.only(left: 100),
-                            height: 28,
-                            width: 75,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(125, 60, 111, 162),
-
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(15),
-                                bottomLeft: Radius.circular(20),
-                              ),
-                            ),
-                          ),
-
-                          // Bold Text.....
                           Padding(
-                            padding: const EdgeInsets.only(top: 160),
-                            child: BoldText(
-                              text: coffees[index].name,
-                              color: Colors.white,
-                            ),
-                          ),
-                          // Light Text.....
-                          Padding(
-                            padding: const EdgeInsets.only(top: 190),
-                            child: LightText(
-                              text: 'With Oat Milk',
-                              color: Colors.grey,
-                              size: 15,
+                            // star icon......
+                            padding: EdgeInsetsGeometry.only(left: 14),
+                            child: Icon(
+                              Icons.star,
+                              color: const Color.fromARGB(255, 251, 179, 34),
                             ),
                           ),
 
-                          // Last Row......
-                          Container(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 215),
-                              child: Row(
-                                children: [
-                                  // Dollar Icon......
-                                  Icon(
-                                    Icons.attach_money_outlined,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      241,
-                                      163,
-                                      99,
-                                    ),
-                                    size: 25,
-                                  ),
+                          SizedBox(width: 5),
 
-                                  // price text...
-                                  BoldText(
-                                    text: coffees[index].price.toString(),
-                                    color: Colors.white,
-                                  ),
-
-                                  SizedBox(width: 60),
-
-                                  // plus Button...
-                                  Container(
-                                    child: Icon(Icons.add),
-                                    height: 70,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: const Color.fromARGB(
-                                        255,
-                                        241,
-                                        163,
-                                        99,
-                                      ),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          // Ranking text......
+                          BoldText(text: coffee.rating, color: Colors.white, size: 18),
                         ],
+                      ),
+
+                      margin: EdgeInsets.only(left: 100),
+                      height: 28,
+                      width: 75,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(125, 60, 111, 162),
+
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(15),
+                          bottomLeft: Radius.circular(20),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
+            ],
+          ),
+
+
+
+          // Details container ........
+          Container(
+            height: 250,
+            width: 180,
+            color: const Color.fromARGB(0, 255, 193, 7),
+
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Coffee name ...............
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: BoldText(text:coffee.name, color: Colors.white),
+                ),
+
+                // Features of coffee.............
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: BoldText(text:coffee. feature, color: Colors.grey, size: 15),
+                ),
+
+                // Last Row......
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: Row(
+                      children: [
+                        // Dollar Icon......
+                        Icon(
+                          Icons.attach_money_outlined,
+                          color: const Color.fromARGB(255, 241, 163, 99),
+                          size: 35,
+                        ),
+
+                        // price text...
+                        BoldText(text:coffee. price, color: Colors.white),
+
+                        SizedBox(width: 30),
+
+                        // plus Button...
+                        Container(
+                          child: Icon(Icons.add),
+                          height: 50,
+                          width: 75,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 241, 163, 99),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }
