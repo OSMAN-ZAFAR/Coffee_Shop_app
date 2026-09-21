@@ -65,10 +65,8 @@ class _HomepageState extends State<Homepage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Cartpage(
-                      coffee: widget.coffee,
-                      selectedSize: selectedSize
-                    )),
+                    MaterialPageRoute(builder: (context) =>Cartpage()
+                    ),
                   );
                 },
                 child: Icon(

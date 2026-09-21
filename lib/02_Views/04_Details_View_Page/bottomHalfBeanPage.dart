@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
+// ignore_for_file: unused_local_variable, prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
+import 'package:coffee_shop_app/03_Controllers/cart_controller.dart';
+import 'package:coffee_shop_app/01_Models/cart_item.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:coffee_shop_app/01_Models/coffee.dart';
@@ -10,8 +12,8 @@ import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:flutter/material.dart';
 
 class Bottomhalfbeanpage extends StatefulWidget {
-   Bottomhalfbeanpage({super.key, required this.coffee});
-  
+  Bottomhalfbeanpage({super.key, required this.coffee});
+
   final Coffee coffee;
 
   @override
@@ -19,7 +21,7 @@ class Bottomhalfbeanpage extends StatefulWidget {
 }
 
 class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
-    String selectedSize="250gm";
+  String selectedSize = "250gm";
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
           width: 480,
           child: LightText(
             text: widget.coffee.feature,
-               
+
             color: Colors.white,
             size: 14,
           ),
@@ -59,7 +61,7 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
           padding: const EdgeInsets.only(left: 10),
           child: BoldText(text: "Size"),
         ),
-        
+
         SizedBox(height: 10),
 
         // Size conatiner........
@@ -71,13 +73,13 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedSize="250gm";
+                    selectedSize = "250gm";
                   });
                 },
                 child: Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(218, 60, 111, 162),
-                    
+
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 40,
@@ -86,9 +88,9 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
                     child: LightText(
                       text: "250gm",
                       size: 15,
-                      color: selectedSize =="250gm"
-                      ?const Color.fromARGB(255, 240, 141, 29)
-                      :Colors.white,
+                      color: selectedSize == "250gm"
+                          ? const Color.fromARGB(255, 240, 141, 29)
+                          : Colors.white,
                     ),
                   ),
                 ),
@@ -99,7 +101,7 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedSize="500gm";
+                    selectedSize = "500gm";
                   });
                 },
                 child: Container(
@@ -113,9 +115,9 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
                     child: LightText(
                       text: "500gm",
                       size: 15,
-                      color: selectedSize =="500gm"
-                      ?const Color.fromARGB(255, 240, 141, 29)
-                      : Colors.white,
+                      color: selectedSize == "500gm"
+                          ? const Color.fromARGB(255, 240, 141, 29)
+                          : Colors.white,
                     ),
                   ),
                 ),
@@ -127,8 +129,7 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedSize="1000gm";
-                   
+                    selectedSize = "1000gm";
                   });
                 },
                 child: Container(
@@ -142,9 +143,9 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
                     child: LightText(
                       text: "1000gm",
                       size: 15,
-                      color:selectedSize=="1000gm"
-                       ? const Color.fromARGB(255, 240, 141, 29)
-                       :Colors.white,
+                      color: selectedSize == "1000gm"
+                          ? const Color.fromARGB(255, 240, 141, 29)
+                          : Colors.white,
                     ),
                   ),
                 ),
@@ -154,78 +155,90 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
         ),
 
         // .............. Last Row .......................
-        
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             
-             // Price Container........
-           
-            Container(
-              margin: EdgeInsets.only(left: 15),
-              height: 80,
-              width: 100,
-             
-             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                LightText(text: "Price",color: const Color.fromARGB(255, 169, 168, 168),size: 15,),
+              // Price Container........
+              Container(
+                margin: EdgeInsets.only(left: 15),
+                height: 80,
+                width: 100,
 
-                Row(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.attach_money_outlined,color:  const Color.fromARGB(255, 255, 172, 7),size: 35,),
+                    LightText(
+                      text: "Price",
+                      color: const Color.fromARGB(255, 169, 168, 168),
+                      size: 15,
+                    ),
 
-                    BoldText(text: 
-                    selectedSize =="250gm"
-                    ? widget.coffee.price.toString()
-                    :selectedSize =="500gm"
-                      ? (widget.coffee.price+5).toString()
-                      : (widget.coffee.price+10).toString(),
-                      size: 25,)
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.attach_money_outlined,
+                          color: const Color.fromARGB(255, 255, 172, 7),
+                          size: 35,
+                        ),
 
-
+                        BoldText(
+                          text: selectedSize == "250gm"
+                              ? widget.coffee.price.toString()
+                              : selectedSize == "500gm"
+                              ? (widget.coffee.price + 5).toString()
+                              : (widget.coffee.price + 10).toString(),
+                          size: 25,
+                        ),
+                      ],
+                    ),
                   ],
-                )
-              ],
-             ),
-            ),
-            
-            SizedBox(width: 50),
-            
-             // Add to Cart button........
-           
-           GestureDetector(
-  onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Cartpage(
-          coffee: widget.coffee,
-          selectedSize: selectedSize,
-        ),
-      ),
-    );
-  },
-                
-              
-              child: Container(
-                margin: EdgeInsets.only(right: 40),
-                height: 60,
-                width: 180,
-                decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 172, 7),
-                borderRadius: BorderRadius.circular(15)
                 ),
-              
-                child: Center(child: BoldText(text: "Add to Cart", color: const Color.fromARGB(255, 247, 245, 245),)),
-              
               ),
-            )
-            
-            
-            ]),
+
+              SizedBox(width: 50),
+
+              // Add to Cart button........
+              GestureDetector(
+                onTap: () {
+                  CartItem item = CartItem(
+                    coffee: widget.coffee,
+                    selectedSize: selectedSize,
+                    selectedPrice: selectedSize == "250gm"
+                        ? widget.coffee.price
+                        : selectedSize == "500gm"
+                        ? widget.coffee.price + 5
+                        : widget.coffee.price + 10,
+                  );
+
+                  CartController.instance.addToCart(item);
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Cartpage()),
+                  );
+                },
+
+                child: Container(
+                  margin: EdgeInsets.only(right: 40),
+                  height: 60,
+                  width: 180,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 172, 7),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+
+                  child: Center(
+                    child: BoldText(
+                      text: "Add to Cart",
+                      color: const Color.fromARGB(255, 247, 245, 245),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
