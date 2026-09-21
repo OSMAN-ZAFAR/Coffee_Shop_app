@@ -108,7 +108,7 @@ class _BeanpageState extends State<Beanpage> {
                   ),
                 ),
 
-                // .............. Ifo Container ................
+                // .............. Info Container ................
                 Padding(
                   padding: EdgeInsets.only(top: 350),
                   child: Container(

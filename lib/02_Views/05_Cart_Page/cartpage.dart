@@ -1,10 +1,12 @@
-// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
+// ignore_for_file: prefer_const_constructors_in_immutables, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
+import 'package:coffee_shop_app/01_Models/coffee.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/07-Favorite_Page/favoritepage.dart';
 import 'package:coffee_shop_app/02_Views/06_Payment_Page/paymentpage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
+import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +15,32 @@ import 'container_2.dart';
 import 'container_3.dart';
 
 class Cartpage extends StatelessWidget {
-  const Cartpage({super.key});
+  Cartpage({
+  super.key,
+  required this.coffee,
+  required this.selectedSize,
+});
+
+final Coffee coffee;
+final String selectedSize;
+
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+         appBar: AppBar(
+          title: Padding(
+            padding: const EdgeInsets.only(left: 110),
+            child: Text("Cart"),
+          ),
+
+          iconTheme: const IconThemeData(color: Colors.orange),
+        ),
         //............ Bottom Navigation Bar.............
         bottomNavigationBar: BottomNavigationBar(
                  type: BottomNavigationBarType.fixed,
-          backgroundColor:  const Color.fromARGB(125, 60, 111, 162),
+          backgroundColor:  const Color.fromARGB(163, 3, 3, 3),
           items: [
             //............ Home 
             BottomNavigationBarItem(
@@ -35,7 +53,7 @@ class Cartpage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.home_filled,
-                  color: const Color.fromARGB(255, 212, 211, 211),
+                  color: const Color.fromARGB(187, 60, 111, 162),
                   size: 28,
                 ),
               ),
@@ -68,7 +86,7 @@ class Cartpage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.favorite,
-                  color: const Color.fromARGB(255, 212, 211, 211),
+                  color: const Color.fromARGB(187, 60, 111, 162),
                   size: 28,
                 ),
               ),
@@ -79,7 +97,7 @@ class Cartpage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.notification_important_rounded,
-                color: const Color.fromARGB(255, 212, 211, 211),
+                color: const Color.fromARGB(187, 60, 111, 162),
                 size: 28,
               ),
               label: '',
@@ -90,66 +108,11 @@ class Cartpage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              //.................. Top Row.......................
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // Top row app Icon.......
-                  Container(
-                    margin: EdgeInsets.only(left: 30, top: 30),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromARGB(185, 74, 73, 73),
-                    ),
-                    height: 40,
-                    width: 40,
-                    child: Icon(
-                      Icons.apps_outlined,
-                      size: 30,
-                      color: const Color.fromARGB(194, 203, 202, 202),
-                    ),
-                  ),
-
-                  // Top row cart text.......
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: BoldText(
-                      text: "Cart",
-                      color: Colors.white,
-                      size: 23,
-                    ),
-                  ),
-
-                  // Top row image.......
-                  Container(
-                    margin: EdgeInsets.only(right: 30, top: 30),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromARGB(185, 74, 73, 73),
-                      image: DecorationImage(
-                        image: AssetImage('assets/mypic.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    height: 40,
-                    width: 40,
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 20),
               //.................. Container 1.......................
               Container1(),
-
-              SizedBox(height: 30),
-
-              //.................. Container 2.......................
-              Container2(),
-
-              SizedBox(height: 30),
-
-              //.................. Container 3.......................
-              Container3(),
 
               // .............. Last Row .......................
               Padding(
@@ -160,8 +123,8 @@ class Cartpage extends StatelessWidget {
                     // Price Container........
                     Container(
                       margin: EdgeInsets.only(left: 15),
-                      height: 80,
-                      width: 100,
+                      height: 90,
+                      width: 120,
 
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +150,7 @@ class Cartpage extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(width: 50),
+                    SizedBox(width: 10),
 
                     // pay button........
                     GestureDetector(
@@ -221,8 +184,11 @@ class Cartpage extends StatelessWidget {
               ),
             ],
           ),
+        ]
         ),
+        
       ),
+    )
     );
   }
 }

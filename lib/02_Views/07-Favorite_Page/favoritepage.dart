@@ -28,7 +28,7 @@ class Favoritepage extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
 
-          backgroundColor: const Color.fromARGB(125, 60, 111, 162),
+          backgroundColor: const Color.fromARGB(124, 6, 6, 6),
 
           items: [
             //............ Home
@@ -42,7 +42,7 @@ class Favoritepage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.home_filled,
-                  color: const Color.fromARGB(255, 212, 211, 211),
+                  color: const Color.fromARGB(187, 60, 111, 162),
                   size: 28,
                 ),
               ),
@@ -59,7 +59,7 @@ class Favoritepage extends StatelessWidget {
                 },
                 child: Icon(
                   Icons.shopping_bag,
-                  color: const Color.fromARGB(255, 212, 211, 211),
+                  color: const Color.fromARGB(187, 60, 111, 162),
                   size: 28,
                 ),
               ),
@@ -88,7 +88,7 @@ class Favoritepage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.notification_important_rounded,
-                color: const Color.fromARGB(255, 212, 211, 211),
+                color:const Color.fromARGB(187, 60, 111, 162),
                 size: 28,
               ),
               label: '',

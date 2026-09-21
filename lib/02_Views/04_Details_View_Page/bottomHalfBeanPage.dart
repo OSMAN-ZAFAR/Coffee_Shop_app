@@ -196,15 +196,20 @@ class _BottomhalfbeanpageState extends State<Bottomhalfbeanpage> {
             
              // Add to Cart button........
            
-            GestureDetector(
-              onTap: () {
-
-                 Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Cartpage()),
-                );
+           GestureDetector(
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => Cartpage(
+          coffee: widget.coffee,
+          selectedSize: selectedSize,
+        ),
+      ),
+    );
+  },
                 
-              },
+              
               child: Container(
                 margin: EdgeInsets.only(right: 40),
                 height: 60,
