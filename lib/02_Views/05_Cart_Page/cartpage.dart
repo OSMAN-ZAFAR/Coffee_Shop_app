@@ -118,6 +118,11 @@ class _CartpageState extends State<Cartpage> {
                         
                       });
                     },
+                    onRemoveItem: () {
+                      setState(() {
+                        
+                      });
+                    },
                     ),
                   ),
                   // .............. Last Row .......................
@@ -134,7 +139,7 @@ class _CartpageState extends State<Cartpage> {
                         Container(
                           margin: EdgeInsets.only(left: 15),
                           height: 90,
-                          width: 120,
+                          width: 145,
 
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,

@@ -9,6 +9,10 @@ class CartController {
   void addToCart(CartItem item){
     cartItem.add(item);
   }
+
+  void removeToCart(CartItem item){
+    cartItem.remove(item);
+  }
   
   void Increment(CartItem item){
     item.quantity++;

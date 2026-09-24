@@ -4,6 +4,7 @@ import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
+import 'package:coffee_shop_app/03_Controllers/cart_controller.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:flutter/material.dart';
@@ -11,64 +12,26 @@ import 'package:flutter/material.dart';
 class Paymentpage extends StatelessWidget {
    Paymentpage({super.key});
 
-  void pay(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog();
-    },
-  );
-}
+ final totalPrice=CartController.instance.totalPrice(); 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+                    // .............. App Bar .........................
+
+       appBar: AppBar(
+          title: Padding(
+            padding: const EdgeInsets.only(left: 110),
+            child: Text("Payment"),
+          ),
+
+          iconTheme: const IconThemeData(color: Colors.orange),
+        ),
+       
+       
         body: Column(
           children: [
-            // .............. Top Row .........................
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  // .............. Back ARRow
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Cartpage(),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(218, 60, 111, 162),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Icon(
-                        Icons.arrow_back_ios_new,
-                        color: const Color.fromARGB(255, 239, 183, 100),
-                      ),
-                      height: 35,
-                      width: 35,
-                    ),
-                  ),
-
-                  SizedBox(width: 110),
-
-                  // Top row Payment text.......
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: BoldText(
-                      text: "Payment",
-                      color: Colors.white,
-                      size: 23,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
+            
             // .............. Credit Card conatiner .........................
             Container(
               height: 320,
@@ -82,7 +45,7 @@ class Paymentpage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 8),
-                    child: LightText(
+                    child: BoldText(
                       text: "credit card",
                       color: const Color.fromARGB(255, 212, 211, 211),
                     ),
@@ -133,19 +96,12 @@ class Paymentpage extends StatelessWidget {
 
                   SizedBox(width: 10),
 
-                  LightText(
+                  BoldText(
                     text: "wallet",
                     size: 20,
                     color: const Color.fromARGB(255, 212, 211, 211),
                   ),
 
-                  SizedBox(width: 130),
-
-                  LightText(
-                    text: " 100.50",
-                    size: 17,
-                    color: const Color.fromARGB(255, 212, 211, 211),
-                  ),
                 ],
               ),
             ),
@@ -179,7 +135,7 @@ class Paymentpage extends StatelessWidget {
 
                   SizedBox(width: 10),
 
-                  LightText(
+                  BoldText(
                     text: "Google Pay",
                     size: 20,
                     color: const Color.fromARGB(255, 212, 211, 211),
@@ -192,8 +148,7 @@ class Paymentpage extends StatelessWidget {
 
             SizedBox(height: 15),
             // .............. amazone Pay conatiner .........................
-
-            
+        
             Container(
               height: 60,
               width: 350,
@@ -221,7 +176,7 @@ class Paymentpage extends StatelessWidget {
 
                   SizedBox(width: 10),
 
-                  LightText(
+                  BoldText(
                     text: "Amazon Pay",
                     size: 20,
                     color: const Color.fromARGB(255, 212, 211, 211),
@@ -243,7 +198,7 @@ class Paymentpage extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.only(left: 15),
                     height: 80,
-                    width: 100,
+                    width: 130,
 
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -262,20 +217,19 @@ class Paymentpage extends StatelessWidget {
                               size: 35,
                             ),
 
-                            BoldText(text: "10.40", size: 25),
+                            BoldText(text:totalPrice.toString(), size: 25),
                           ],
                         ),
                       ],
                     ),
                   ),
 
-                  SizedBox(width: 50),
+                  SizedBox(width: 30),
 
                   // pay button........
                   GestureDetector(
                     onTap: () {
-                      pay(context);
-                      Navigator.pop(context);
+                     
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 49),
@@ -290,7 +244,7 @@ class Paymentpage extends StatelessWidget {
                       
                         child: Center(
                           child: BoldText(
-                            text: "Pay From Card",
+                            text: "Pay ",
                             color: const Color.fromARGB(255, 247, 245, 245),
                           ),
                         ),
