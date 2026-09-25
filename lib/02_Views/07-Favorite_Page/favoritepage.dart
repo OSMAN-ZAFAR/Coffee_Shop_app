@@ -1,19 +1,31 @@
-// ignore_for_file: sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
+// ignore_for_file: unused_local_variable, sized_box_for_whitespace, sort_child_properties_last, avoid_unnecessary_containers, must_be_immutable, unused_import
 
-import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage.dart';
+import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
+import 'package:coffee_shop_app/03_Controllers/favoriteController.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
-import 'package:coffee_shop_app/widgets/BoldText.dart';
-import 'package:coffee_shop_app/widgets/LightText.dart';
+import 'favoriteItemTile.dart';
+import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:coffee_shop_app/Data/favorite_data.dart';
+import 'package:coffee_shop_app/widgets/LightText.dart';
+import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:flutter/material.dart';
 
-class Favoritepage extends StatelessWidget {
+class Favoritepage extends StatefulWidget {
   const Favoritepage({super.key});
 
   @override
+  State<Favoritepage> createState() => _FavoritepageState();
+}
+
+class _FavoritepageState extends State<Favoritepage> {
+  @override
   Widget build(BuildContext context) {
+    //................ Connecting the controller with page....................
+
+    final favoriteCoffees = FavoriteController.instance.favoriteCoffees;
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -88,81 +100,24 @@ class Favoritepage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.notification_important_rounded,
-                color:const Color.fromARGB(187, 60, 111, 162),
+                color: const Color.fromARGB(187, 60, 111, 162),
                 size: 28,
               ),
               label: '',
             ),
           ],
         ),
-        body: Column(
-          children: [
 
-            const SizedBox(height: 20),
-
-            Expanded(
-              child: ListView.builder(
-                itemCount: favoriteCoffees.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.only(
-                      left: 15,
-                      right: 15,
-                      bottom: 15,
-                    ),
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(125, 60, 111, 162),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 150,
-                          width: 80,
-                          margin: const EdgeInsets.only(left: 10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            image: DecorationImage(
-                              image: AssetImage(favoriteCoffees[index].image),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-
-                        const SizedBox(width: 15),
-
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              favoriteCoffees[index].name,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-
-                            const SizedBox(height: 5),
-
-                            Text(
-                              '\$${favoriteCoffees[index].price}',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: favoriteCoffees
+                .map((coffee) => Favoriteitemtile(coffee: coffee,onRemoveItem: () {
+                  setState(() {
+                    
+                  });
+                },))
+                .toList(),
+          ),
         ),
       ),
     );

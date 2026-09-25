@@ -6,7 +6,7 @@ import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/07-Favorite_Page/favoritepage.dart';
 import 'package:coffee_shop_app/02_Views/06_Payment_Page/paymentpage.dart';
-import 'package:coffee_shop_app/03_Controllers/cart_controller.dart';
+import 'package:coffee_shop_app/03_Controllers/cartController.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/Data/coffee_data.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
@@ -26,7 +26,7 @@ class _CartpageState extends State<Cartpage> {
   Widget build(BuildContext context) {
     final cartItem = CartController.instance.cartItem;
 
-    final totalPrice=CartController.instance.totalPrice();
+    final totalPrice = CartController.instance.totalPrice();
 
     return SafeArea(
       child: Scaffold(
@@ -112,17 +112,14 @@ class _CartpageState extends State<Cartpage> {
                 children: [
                   //.................. Container 1.......................
                   ...cartItem.map(
-                    (cartItem) => CartItemTile(cartItem: cartItem,
-                    onQunatityChanged: (){
-                      setState(() {
-                        
-                      });
-                    },
-                    onRemoveItem: () {
-                      setState(() {
-                        
-                      });
-                    },
+                    (cartItem) => CartItemTile(
+                      cartItem: cartItem,
+                      onQunatityChanged: () {
+                        setState(() {});
+                      },
+                      onRemoveItem: () {
+                        setState(() {});
+                      },
                     ),
                   ),
                   // .............. Last Row .......................
@@ -163,7 +160,10 @@ class _CartpageState extends State<Cartpage> {
                                     size: 35,
                                   ),
 
-                                  BoldText(text: totalPrice.toStringAsFixed(2), size: 25),
+                                  BoldText(
+                                    text: totalPrice.toStringAsFixed(2),
+                                    size: 25,
+                                  ),
                                 ],
                               ),
                             ],

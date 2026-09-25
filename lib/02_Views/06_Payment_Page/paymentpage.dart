@@ -4,7 +4,7 @@ import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
 import 'package:coffee_shop_app/02_Views/05_Cart_Page/cartpage.dart';
-import 'package:coffee_shop_app/03_Controllers/cart_controller.dart';
+import 'package:coffee_shop_app/03_Controllers/cartController.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:flutter/material.dart';

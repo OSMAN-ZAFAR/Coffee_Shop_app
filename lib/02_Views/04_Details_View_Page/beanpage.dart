@@ -3,6 +3,7 @@
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/beanpage.dart';
 import 'package:coffee_shop_app/02_Views/04_Details_View_Page/bottomHalfBeanPage.dart';
 import 'package:coffee_shop_app/02_Views/03_Home_Page/homepage.dart';
+import 'package:coffee_shop_app/03_Controllers/favoriteController.dart';
 import 'package:coffee_shop_app/widgets/BoldText.dart';
 import 'package:coffee_shop_app/widgets/LightText.dart';
 import 'package:coffee_shop_app/01_Models/coffee.dart';
@@ -78,9 +79,9 @@ class _BeanpageState extends State<Beanpage> {
                             setState(() {
                               isFavorite = !isFavorite;
                               if (isFavorite) {
-                                favoriteCoffees.add(widget.coffee);
+                                FavoriteController.instance.addToFavorite(widget.coffee);
                               } else {
-                                favoriteCoffees.remove(widget.coffee);
+                                FavoriteController.instance.removeToFavorie(widget.coffee);
                               }
                             });
                           },
